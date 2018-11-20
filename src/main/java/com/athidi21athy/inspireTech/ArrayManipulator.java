@@ -9,6 +9,8 @@ public class ArrayManipulator {
         System.out.println("Mean " + calculateMean(randomArray));
         System.out.println("Median " + calculateMedian(randomArray));
         System.out.println("Mode " + calculateMode(randomArray));
+        System.out.println("Range of an Array ( "+ getMinValue(randomArray) +
+                ", " + getMaxValue(randomArray) + " )");
     }
 
    public int[] createRandomArray() {
@@ -27,16 +29,16 @@ public class ArrayManipulator {
     }
     public double calculateMode(int[] array) {
         int maxNumber = -1;
-        int maxAppreance = -1;
+        int maxAppearance = -1;
         for (int i = 0; i <array.length; i++) {
             int counter = 0;
             for(int j = 0; j <array.length; j++) {
                 if (array[i] == array[j])
                     counter++;
             }
-            if (counter > maxAppreance) {
+            if (counter > maxAppearance) {
                 maxNumber = array[i];
-                maxAppreance = counter;
+                maxAppearance = counter;
             }
         }
         return maxNumber;
@@ -45,5 +47,25 @@ public class ArrayManipulator {
     public double calculateMean(int[] array) {
         double mean = array.length / 2;
         return mean;
+    }
+
+    public int getMaxValue(int[] array) {
+        int maxValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maxValue) {
+                maxValue = array[i];
+            }
+        }
+        return maxValue;
+    }
+
+    public int getMinValue(int[] array) {
+        int minValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
+            }
+        }
+        return minValue;
     }
 }
